@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Regions</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item button (click)="showShrines(region)" *ngFor="let region of regions">
+      {{ region.name }}
+    </ion-item>
+  </ion-list>
+
+  <!-- Display shrines for selected region -->
+  <ion-card *ngIf="selectedRegion">
+    <ion-card-header>
+      <ion-card-title>{{ selectedRegion.name }} Shrines</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let shrine of selectedRegion.shrines">
+          <ion-label>
+            <h2>{{ shrine.name }}</h2>
+            <p class="shrine-puzzle">Puzzle name: {{ shrine.puzzle }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

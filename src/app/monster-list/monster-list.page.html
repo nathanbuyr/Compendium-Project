@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Monster List</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="sortByName()">Sort by Name</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let monster of monsters">
+    <img alt="MonsterTitle" [src]="monster.image" width="200" height="250"/>
+    <ion-card-header>
+      <ion-card-title>{{ monster.name }}</ion-card-title>
+      <ion-card-subtitle>{{ monster.description }}</ion-card-subtitle>
+      <ion-card-subtitle>Common Locations: {{ monster.common_locations }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content *ngIf="!isMonsterSaved(monster)">
+      <ion-button (click)="saveMonster(monster)" expand="block">Save Monster</ion-button>
+    </ion-card-content>
+    <ion-card-content *ngIf="isMonsterSaved(monster)">
+      <ion-label>Monster saved!</ion-label>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

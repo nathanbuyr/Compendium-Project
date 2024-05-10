@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-title class="ion-text-center">
+      Legend of Zelda Compendium
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,8 +13,22 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <!-- Pulling a image from the internet -->
+    <div class="ion-text-center">
+      <img src="https://seeklogo.com/images/T/the-legend-of-zelda-hyrulian-crest-logo-0EE3FC3E0B-seeklogo.com.png" alt="Hyrulian Crest">
+    </div>
+  
+<div class="ion-text-center">
+  <ion-button [routerLink]="['/monster-list']">Monster List</ion-button>
+</div>
+<div class="ion-text-center">
+  <ion-button [routerLink]="['/equipment']">Equipment List</ion-button>
+</div>
+<div class="ion-text-center">
+  <ion-button [routerLink]="['/regions']">Regions</ion-button>
+</div>
+<div class="ion-text-center">
+  <ion-button [routerLink]="['/saved-monsters']">Saved</ion-button>
+</div>
+  
 </ion-content>

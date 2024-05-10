@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Equipment List</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="sortByName()">Sort by Name</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+    
+  <ion-card *ngFor="let equip of equipment">
+    <img alt="EquipmentTitle" [src]="equip.image" width="200" height="250"/>
+    <ion-card-header>
+      <ion-card-title>{{ equip.name }}</ion-card-title>
+      <ion-card-subtitle>{{ equip.description }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content *ngIf="!isMonsterSaved(equip)">
+      <ion-button (click)="saveMonster(equip)" expand="block">Save Item</ion-button>
+    </ion-card-content>
+    <ion-card-content *ngIf="isMonsterSaved(equip)">
+      <ion-label>Item saved!</ion-label>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
