@@ -28,8 +28,9 @@ saveMonster(monster: any) {
   this.savedMonstersService.saveMonster(monster);
 }
 
-isMonsterSaved(monster: any): boolean {
-  return this.savedMonstersService.getSavedMonsters().some(monster => monster.id == monster.id);
+//'m' here is used as a callback for the some() method, which searches through each element of the array until it finds the id its satisfied with
+isMonsterSaved(equip: any): boolean {
+  return this.savedMonstersService.getSavedMonsters().some(m => m.id === equip.id);
 }
 
 //Sorts the list by alphabetical order

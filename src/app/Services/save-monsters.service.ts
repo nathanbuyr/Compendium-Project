@@ -23,7 +23,7 @@ export class SavedMonstersService {
   }
 
   removeMonster(monster: any): void {
-    const index = this.savedMonsters.findIndex(monster => monster.id == monster.id) /*findIndex checks each element in savedMonsters to see if the monster that was passed through is saved*/;
+    const index = this.savedMonsters.findIndex(monster => monster.id === monster.id) /*findIndex checks each element in savedMonsters to see if the monster that was passed through is saved*/;
     if (index !== -1) /*returns -1 if a monster was found */ {
       this.savedMonsters.splice(index, 1); //Using splice, we remove the monster from the savedmonster array
       this.savedMonsterIds.delete(monster.id);//Also deletes the id
